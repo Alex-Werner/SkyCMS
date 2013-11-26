@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<databases>
+    <database>
+        <dbName>Default</dbName>
+        <dbDescription>No Description Provided</dbDescription>
+        <dbUser>root</dbUser>
+        <dbPass>root</dbPass>
+        <dbHost>localhost</dbHost>
+        <dbPort>81</dbPort>
+    </database>
+</databases>
