@@ -1,7 +1,12 @@
 <?php
+/**
+ * Author: Alex-WERNER
+ * Date: 14/01/14
+ * Time: 16:02
+ * Use:
+ */
 
-class bootstrap{
-
+class SK_Bootstrap {
     var $js;
     var $css;
 
@@ -24,12 +29,4 @@ class bootstrap{
         $this->css[]=$themeDir."/css/general.css";
         $this->js[]=$themeDir."/core/js/global.js";
     }
-
-
 }
-
-
-
-
-
-

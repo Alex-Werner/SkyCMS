@@ -1,29 +1,21 @@
-<?php
-session_start();
-/**
- * SKYCMS : ENTRY POINT
- */
-require('bootstrap.php');
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-    <?php echo $this->html->charset('UTF-8'); ?>
-    <title><?php echo $this->title(); ?></title>
-    <?php echo $this->html->loadCSS();?>
-    <?php echo $this->html-loadJS();?>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="header">
-                <?php echo $this->header(); ?>
-            </div>
-            <div id="content">
-                <?php echo $this->content(); ?>
-            </div>
-            <div id="bottom">
-                <?php echo $this->bottom(); ?>
-            </div>
-        </div>
-    </body>
-</html>
+<?php session_start();
+
+function __autoload($class)
+{
+    $filename = __DIR__."/core/classes/".$class.'.php';
+    if(file_exists($filename))
+    {
+        require_once $filename;
+    }
+}
+function test()
+{
+    var_dump("HEY !");
+}
+
+$app = new SK_Core(__DIR__);
+$app->skInit($_GET);
+//Display template
+$app->displayTheme($app->processTheme($app->loadTheme()));
+//var_dump($app->loadTheme());
+//$app->processTheme();
