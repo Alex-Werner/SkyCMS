@@ -83,8 +83,16 @@ class SK_Core {
     {
         //Is there any modules installed looking for this entry point ?
 
+        if($this->db->GetData("sk_modules","active","url='/".$this->actualPage."/' AND active=1"))
+        {
+            __loadModule($this->db->GetFirstData("sk_modules","name","url='/".$this->actualPage."/' AND active=1")->name);
+            $module = new SK_Contact();
+            return $module->content;
+
+
+        }
         //If not, is there a normal page ?
-        if($this->db->GetData("sk_pages","content","url ='/".$this->actualPage."/'"))
+        elseif($this->db->GetData("sk_pages","content","url ='/".$this->actualPage."/'"))
         {
             return $this->db->GetFirstData("sk_pages","content","url ='/".$this->actualPage."/'")->content;
         }

@@ -9,6 +9,14 @@ function __autoload($class)
         require_once $filename;
     }
 }
+function __loadModule($modname)
+{
+    $filename= __DIR__."/modules/".$modname."/".$modname.".php";
+    if(file_exists($filename))
+    {
+        require_once $filename;
+    }
+}
 
 $app = new SK_Core(__DIR__);
 $app->skInit($_GET);
