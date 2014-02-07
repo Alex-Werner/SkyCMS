@@ -1,15 +1,17 @@
-Options +FollowSymlinks
-RewriteEngine on
+#RewriteEngine on
+#RewriteBase /
+Options FollowSymLinks
+RewriteEngine On
 RewriteBase /
 
 RewriteRule ^([0-9A-Za-z_-]+)$ index.php?v=$1 [L]
 RewriteRule ^([0-9A-Za-z_-]+)/$ index.php?v=$1 [L]
 
-RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)$ index.php?v=$1&a=$2 [L]
-RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/$ index.php?v=$1&a=$2 [L]
+#RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)$ index.php?v=$1&a=$2 [L]
+#RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/$ index.php?v=$1&a=$2 [L]
 
-RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)$ index.php?v=$1&a=$2&k=$3 [L]
-RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/$ index.php?v=$1&a=$2&k=$3 [L]
+#RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)$ index.php?v=$1&a=$2&k=$3 [L]
+#RewriteRule ^([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/$ index.php?v=$1&a=$2&k=$3 [L]
 
 
 

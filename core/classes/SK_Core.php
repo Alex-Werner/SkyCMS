@@ -10,8 +10,12 @@ class SK_Core {
 
     function SK_Core($dir)
     {
+        $this->timeFormat = 'd-m-Y H:i';
         $this->SkDir = $dir;
         $this->themeName = "default";
+        $this->actualPage="";
+        $this->db = new SK_Persist();
+
     }
 
     /* LOGIN */
@@ -40,13 +44,18 @@ class SK_Core {
             throw new Exception("Error while loading template");
         }
     }
-    function processTheme($html)
+    function displaySrvInfo()
     {
         phpinfo();
-        //var_dump((new SK_Date())->display());
-       // $arr = array('{{SERVER_TIME}}','{{PAGE_TITLE}}');
-       // $arr2 = array(, 'Default TEMPLATE');
-       // return str_replace($arr, $arr2, $html);
+    }
+    function processTheme($html)
+    {
+        $t = new SK_Date();
+        //var_dump($t);
+        $arr = array('{{SERVER_TIME}}','{{PAGE_TITLE}}','{{CONTENT_PAGE}}','{{CONTENT_MENU}}');
+        //var_dump($t->format($this->timeFormat));
+        $arr2 = array('11', 'Default TEMPLATE',$this->getActualPageContent(),$this->getActualMenuContent());
+        return str_replace($arr, $arr2, $html);
     }
     function displayTheme($html)
     {
@@ -55,8 +64,55 @@ class SK_Core {
 
     function skInit($_GET=null, $_POST=null)
     {
+        if($_GET==null && $_POST==null)
+        {
+            $this->actualPage=$this->db->GetConfigValueFromKey("landing_page");
+        }
+        else
+        {
+            $this->actualPage=$_GET['v'];
+        }
 
     }
+    function getActualMenuContent()
+    {
+        $menu = new SK_Menu($this->actualPage);
+        return $menu->getHtml();
+    }
+    function getActualPageContent()
+    {
+        //Is there any modules installed looking for this entry point ?
+
+        //If not, is there a normal page ?
+        if($this->db->GetData("sk_pages","content","url ='/".$this->actualPage."/'"))
+        {
+            return $this->db->GetFirstData("sk_pages","content","url ='/".$this->actualPage."/'")->content;
+        }
+        //Then let's just bring our user in a error page
+        else
+        {
+            if($this->db->GetConfigValueFromKey("allow_redirect_404"))
+            {
+                return $this->db->GetFirstData("sk_pages","content","url ='/".$this->db->GetConfigValueFromKey("allow_redirect_404_url")."/'")->content;
+
+            }
+            else
+            {
+                return $this->db->GetFirstData("sk_pages","content","url ='/404/'")->content;
+            }
+
+        //if config say we open.
+            //$this->GetConfigValueFromKey("allow_redirect_404");
+            //var_dump($this->GetData('sk_config','allow_redirect_404'));
+            //Get 404 page screen
+            //$this->GetData("");
+
+        }
+
+        //return $this->actualPage;
+    }
+
+
 
 
 }
