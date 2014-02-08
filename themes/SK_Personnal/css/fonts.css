@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: "Agency FB";
+    src: url('AGENCYR.ttf');
+}
+@font-face {
+    font-family: "Agency FB";
+    font-weight: bold;
+    src: url('AGENCYB.ttf');
+}

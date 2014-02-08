@@ -30,13 +30,17 @@ class SK_Core {
         return false;
     }
     /* THEME FUN STUFF */
+    function setActualTheme()
+    {
+        $this->themeName = $this->db->GetFirstData("sk_themes","name","active=1")->name;
+    }
     function loadTheme($file=null, $options=null)
     {
         //$opt = explode('_',$options);
+        $this->setActualTheme();
         $filename=$this->SkDir.'/themes/'.$this->themeName.'/index.php';
         if(file_exists($filename))
         {
-            //            include($filename);
             return file_get_contents($filename);
         }
         else
