@@ -1,5 +1,4 @@
 <?php session_start();
-//var_dump($_GET);
 
 function __autoload($class)
 {
@@ -21,8 +20,6 @@ function __loadModule($modname)
 $app = new SK_Core(__DIR__);
 $app->skInit($_GET);
 //$app->displaySrvInfo();
+
 //Display template
-$app->displayTheme($app->processTheme($app->loadTheme()));
-//var_dump($app->loadTheme());
-//$app->processTheme();
-//$app->loadPage($app->landingPage());
+$app->displayTheme();

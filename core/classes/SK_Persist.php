@@ -51,7 +51,21 @@ class SK_Persist {
             return 0;
         return $result->fetch();
     }
-
+    function InsertData($table,$keys,$values)
+    {
+        $db= $this->Connect();
+        $db->query("INSERT INTO ".$table." (".$keys.") VALUES (".$values.")");
+    }
+    function DeleteData($table,$where)
+    {
+        $db = $this->Connect();
+        $db->exec("DELETE FROM ".$table." WHERE ".$where);
+    }
+    function SetData($table,$key,$value,$where)
+    {
+        $db = $this->Connect();
+        $db->exec("UPDATE ".$table." SET ".$key."='".$value."' WHERE ".$where);
+    }
     //TODO : CLASS CONFIG MAY BE ?
     function GetConfigValueFromKey($key)
     {

@@ -18,7 +18,7 @@
 
         <div class="container" style="min-height: 500px; padding:50px ">
             <section id="page-header" class="page-header">
-                Logo de société
+            {{RESS=LOGO}}
             </section>
             <section id="content" class="content">
             {{CONTENT_PAGE}}

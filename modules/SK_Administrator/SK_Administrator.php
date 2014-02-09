@@ -7,5 +7,23 @@
  */
 
 class SK_Administrator {
+    function SK_Administrator()
+    {
+        $this->content = $this->loadContent();
 
+    }
+    function loadTpl()
+    {
+        ob_start();
+        include "modules/SK_Administrator/index.php";
+        return ob_get_clean();
+
+       //return file_get_contents("modules/SK_Administrator/index.php");
+    }
+    function loadContent()
+    {
+        //GET TPL
+        return $this->loadTpl();
+        //return "<div>INDEPENDANT PAGE LOADED !</div>";
+    }
 }
