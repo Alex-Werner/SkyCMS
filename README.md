@@ -25,6 +25,22 @@ I do not attend that anyone really download this. But in case of it happens, be 
 no warranty with this software. 
 You still can contact me @obusco for any questions/help about it.
 
+Main Features
+-------------
+
+* Core :
+ * Dynamic site(mysql) structure with url rewriting
+ * Allow external modules (Two option : Inside the "content div" or with a total external templating as SK_Administrator
+ * Allow multi-templating.
+* Modules :
+ * SK_Administrator : thought as a module (if you prefer design your own, you can go for it), allow all administration attended for administrating.
+ * ~~SK_Contact : Do not work, it was a simple try for front-end module.~~
+* Themes :
+ * No really, there are none of them, just some piece of crap done quickly :3 Even the back-end theme is more beautiful...
+
+Nota : For now, you will have to do a public modules and a private modules. Exemple SK_Contact for front-end and SK_Contact_Admin for back-end (of the modules).
+
+
 Installation
 ------------
 
@@ -35,7 +51,7 @@ Installation
 Licence
 -------
 
-/*
+ *
  * ----------------------------------------------------------------------------
  * "THE BEERCOIN-WARE LICENSE" (Revision 42.24)<Alex-Werner>:
  *
@@ -44,4 +60,4 @@ Licence
  * Otherwise, you still can offer me some bitcoin : 1LKAX7qxfQV7GcytUcXEA3duJ6EmCWav8w
  * 
  * ----------------------------------------------------------------------------
- */
+ *
