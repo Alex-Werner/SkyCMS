@@ -115,7 +115,7 @@ else
     </script>
     <h1>Pages</h1>
 
-    <p><button onclick="location.href='/admin/pages/new'">Créer une page</button></p>
+    <p></p>
     <table>
         <thead class="first">
         <td>ID</td>

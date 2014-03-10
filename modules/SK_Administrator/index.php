@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Administration</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 </head>
 <style>
     body {
@@ -11,6 +12,15 @@
     }
     #wrapper{
 
+    }
+    a, a:visited {
+        color: #000;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #fff;
+    }
+
+    a:hover {
+        border-bottom: 1px dotted #fff;
     }
 </style>
 <body>
@@ -24,8 +34,10 @@
         else
             $a = "overview";
     }
+
     else
         $a = "overview";
+
     ob_start();
     include "modules/SK_Administrator/view/index.php";
     $wrapper = ob_get_clean();

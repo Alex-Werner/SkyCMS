@@ -109,13 +109,14 @@
     }
 </style>
 <?php
-if($_SESSION['administrateur']=='42')
+if(isset($_SESSION['administrateur']) && $_SESSION['administrateur']=='42')
 {
 
 }
 else
 {
-    header('Location: /admin/login/');
+    if($_GET['a']!=='login' && $_GET['a'] !== 'deconnect')
+        header('Location: /admin/login/');
 }
 ?>
 <div id="header">
@@ -123,7 +124,7 @@ else
         <img src="/modules/SK_Administrator/skycms_logo.png">
     </a>
     <ul class="pull-right">
-        <a href="/deconnect/">Deconnexion</a>
+        <a href="/admin/deconnect/">Deconnexion</a>
         |
         <a href="/">Retour au site</a>
     </ul>

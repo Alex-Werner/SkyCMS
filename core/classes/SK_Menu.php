@@ -4,7 +4,8 @@ class SK_Menu{
 
     function SK_Menu($actualPage="home")
     {
-        $this->root = "http://www.skycms.loc/";
+        $this->db = new SK_Persist();
+        $this->root = $this->db->GetConfigValueFromKey("root_domain");
         $this->actualPage = $actualPage;
     }
     function getHtml()

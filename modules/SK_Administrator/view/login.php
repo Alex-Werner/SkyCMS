@@ -62,6 +62,7 @@
     }
 </script>
 <a href="/">Retour au site</a>
+
 <div id="log-screen">
     <h1><img src="/modules/SK_Administrator/skycms_logo.jpg"></h1>
     <fieldset>

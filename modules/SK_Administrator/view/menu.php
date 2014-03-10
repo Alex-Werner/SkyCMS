@@ -4,6 +4,7 @@
     }
 </style>
 <?php
+/* If we have a context*/
 if(isset($_GET['k']))
 {
     $db = new SK_Persist();
@@ -48,9 +49,9 @@ else
         $html.="</tr>";
     }
     ?>
-    <h1>Pages</h1>
+    <h1>Menu</h1>
 
-    <p><button>Créer une page</button></p>
+    <p><button onclick="location.href='/admin/menu/new'">Créer un lien</button></p>
     <table>
         <thead class="first">
         <td>ID</td>
