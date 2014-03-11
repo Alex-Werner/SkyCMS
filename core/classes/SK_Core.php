@@ -54,7 +54,7 @@ class SK_Core {
         //var_dump($t);
         $arr = array('{{RESS=LOGO}}','{{SERVER_TIME}}','{{PAGE_TITLE}}','{{CONTENT_PAGE}}','{{CONTENT_MENU}}');
         //var_dump($t->format($this->timeFormat));
-        $arr2 = array('<img src="/ressources/image/logo_overblack.png"> ','11', 'Default TEMPLATE',$this->getActualPageContent(),$this->getActualMenuContent());
+        $arr2 = array('<img src="/ressources/image/logo_overwhite.png"> ','11', 'Default TEMPLATE',$this->getActualPageContent(),$this->getActualMenuContent());
         return str_replace($arr, $arr2, $html);
     }
     function displayTheme()
